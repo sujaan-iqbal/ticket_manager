@@ -1,0 +1,109 @@
+# Student Support & Ticket Management System
+
+## Problem Statement
+
+Students face issues related to fees, attendance, assignments, certificates, ID cards, admissions, and ERP/portal access.
+
+The system provides a centralized platform to raise, manage, track, and resolve these requests.
+
+## System Design
+
+```text
+                         ┌──────────────┐
+                         │   Students   │
+                         └──────┬───────┘
+                                │
+                         Raise / Track
+                                │
+                                ▼
+                    ┌─────────────────────┐
+                    │   Streamlit Portal  │
+                    └──────────┬──────────┘
+                               │
+                    ┌──────────▼──────────┐
+                    │ Authentication &    │
+                    │ Role Management      │
+                    └──────────┬──────────┘
+                               │
+                 ┌─────────────┴─────────────┐
+                 │                           │
+                 ▼                           ▼
+        ┌────────────────┐          ┌────────────────┐
+        │ Student Portal │          │  Admin Portal  │
+        └───────┬────────┘          └───────┬────────┘
+                │                           │
+                └─────────────┬─────────────┘
+                              ▼
+                    ┌──────────────────┐
+                    │ Ticket Management│
+                    └────────┬─────────┘
+                             │
+             ┌───────────────┼───────────────┐
+             ▼               ▼               ▼
+       ┌──────────┐    ┌──────────┐    ┌──────────┐
+       │ Priority │    │   SLA    │    │Department│
+       │ Assignment│   │ Tracking │    │ Routing  │
+       └────┬─────┘    └────┬─────┘    └────┬─────┘
+            └───────────────┼───────────────┘
+                            ▼
+                   ┌─────────────────┐
+                   │ SQLite Database │
+                   └─────────────────┘
+                            │
+                            ▼
+                 Activity & Notifications
+
+
+## Ticket Workflow
+
+NEW
+ ↓
+ACKNOWLEDGED
+ ↓
+ASSIGNED
+ ↓
+IN_PROGRESS
+ ↓
+ ┌──────────────────────┐
+ │                      │
+ ▼                      ▼
+WAITING_FOR_STUDENT   RESOLVED
+ │                      │
+ ▼                      ▼
+IN_PROGRESS            CLOSED
+ │
+ └──────────────► RESOLVED
+
+## How to Run
+1. Clone the Repository
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+cd student-support
+2. Create Virtual Environment
+
+Windows
+
+python -m venv .venv
+.venv\Scripts\activate
+
+macOS/Linux
+
+python3 -m venv .venv
+source .venv/bin/activate
+3. Install Dependencies
+pip install -r requirements.txt
+4. Run the Application
+python -m streamlit run app.py
+
+Open:
+
+http://localhost:8501
+Demo Login
+Admin
+Username: admin
+Password: admin123
+
+Student accounts are available in the application.
+
+## Live Demo
+
+Streamlit Application
