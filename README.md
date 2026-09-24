@@ -133,6 +133,4 @@ Password: admin123
 
 Student accounts are available in the application.
 
-## Live Demo
 
-[Streamlit Application](YOUR_STREAMLIT_DEPLOYED_URL)
