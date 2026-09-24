@@ -1,0 +1,45 @@
+# Python virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# SQLite database
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+
+# Uploaded/generated files
+uploads/
+outputs/
+
+# IDE / editor
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Jupyter
+.ipynb_checkpoints/
